@@ -1,0 +1,37 @@
+<?php
+$con=mysqli_connect("localhost","root","1990","join");
+?>
+<table border="1">
+
+<?php
+$qry=mysqli_query($con,"select student.name as name, student.roll_no as roll_no, fee.s_fee as fee, fee.roll_no as roll_no2 from student join fee on student.roll_no=fee.roll_no");
+while($row=mysqli_fetch_array($qry))
+{
+	extract($row);
+?>
+
+	<tr>
+		<td><?php echo $roll_no;  ?></td>
+		<td><?php echo $name;  ?></td>
+		<td><?php echo $fee;  ?></td>
+	</tr>
+<?php
+}
+
+?>
+</table>
+----------------------------------------------<br/>
+<?php
+$qry=mysqli_query($con,"select student.name as name, student.roll_no as roll_no, fee.s_fee as fee, fee.roll_no as roll_no2 from student join fee on student.roll_no=fee.roll_no and student.roll_no='102'");
+$row=mysqli_fetch_array($qry);
+extract($row);
+?>
+<table border="1">
+<tr>
+	<td><?php echo $roll_no; ?></td>
+	<td><?php echo $name; ?></td>
+	<td><?php echo $fee; ?></td>
+</tr>
+</table>
+
+----------------------------------------------<br/>
