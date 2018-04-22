@@ -1,0 +1,39 @@
+-----------------Three Table-----------------------------<br/>
+<?php
+$qry=mysqli_query($con,"select * from student join fee on student.roll_no=fee.roll_no join number on student.roll_no=number.roll_no;" );
+while($row=mysqli_fetch_array($qry))
+{
+extract($row);
+?>
+<table border="1">
+<tr>
+	<td><?php echo $roll_no; ?></td>
+	<td><?php echo $name; ?></td>
+	<td><?php echo $fee; ?></td>
+	<td><?php echo $mobile; ?></td>
+</tr>
+</table>
+<?php
+}
+?>
+
+
+-------------------three Table Specific Record---------------------------<br/>
+<?php
+$qry=mysqli_query($con,"select * from student join fee on student.roll_no=fee.roll_no join number on student.roll_no=number.roll_no and student.roll_no='102'" );
+while($row=mysqli_fetch_array($qry))
+{
+extract($row);
+?>
+<table border="1">
+<tr>
+	<td><?php echo $roll_no; ?></td>
+	<td><?php echo $name; ?></td>
+	<td><?php echo $fee; ?></td>
+	<td><?php echo $mobile; ?></td>
+</tr>
+</table>
+<?php
+}
+?>
+
